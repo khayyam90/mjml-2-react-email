@@ -2,23 +2,71 @@
   "name": "mjml-2-react-email",
   "version": "1.0.0",
   "description": "Convert MJML templates to React Email components and render to HTML",
+  "author": "khayyam90",
+  "license": "MIT",
+  "main": "dist/converter.js",
+  "types": "dist/converter.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/converter.d.ts",
+      "default": "./dist/converter.js"
+    }
+  },
+  "bin": {
+    "mjml2re": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khayyam90/mjml-2-react-email.git"
+  },
+  "homepage": "https://github.com/khayyam90/mjml-2-react-email#readme",
+  "bugs": {
+    "url": "https://github.com/khayyam90/mjml-2-react-email/issues"
+  },
+  "keywords": [
+    "mjml",
+    "react-email",
+    "email",
+    "converter",
+    "html-email",
+    "email-template"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "start": "tsx src/index.ts",
     "build": "tsc",
+    "postbuild": "chmod +x dist/index.js",
     "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build",
     "mjml": "mjml input.mjml -o input.html"
   },
+  "peerDependencies": {
+    "@react-email/components": ">=0.0.35",
+    "@react-email/render": ">=1.0.5",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "@react-email/render": {
+      "optional": true
+    }
+  },
   "dependencies": {
-    "@react-email/components": "^0.0.35",
-    "@react-email/render": "^1.0.5",
     "domhandler": "^5.0.3",
-    "htmlparser2": "^9.1.0",
-    "react": "^19.2.7"
+    "htmlparser2": "^9.1.0"
   },
   "devDependencies": {
+    "@react-email/components": "^0.0.35",
+    "@react-email/render": "^1.0.5",
     "@types/node": "^26.0.0",
     "@types/react": "^19.0.0",
     "mjml": "^5.3.0",
+    "react": "^19.2.7",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   }

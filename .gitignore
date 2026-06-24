@@ -3,3 +3,8 @@ dist/
 *.js.map
 .env
 .DS_Store
+
+# Generated outputs (produced by npm start / npm run mjml)
+output.html
+input.html
+preview.html

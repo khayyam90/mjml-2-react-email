@@ -1,11 +1,13 @@
+#!/usr/bin/env node
 import fs from 'fs'
 import path from 'path'
 import { render } from '@react-email/render'
 import { convertMjml } from './converter'
 
 async function main(): Promise<void> {
-  const inputPath = path.resolve(process.cwd(), 'input.mjml')
-  const outputPath = path.resolve(process.cwd(), 'output.html')
+  const [, , inputArg, outputArg] = process.argv
+  const inputPath = path.resolve(process.cwd(), inputArg ?? 'input.mjml')
+  const outputPath = path.resolve(process.cwd(), outputArg ?? 'output.html')
 
   console.log(`Reading ${inputPath}…`)
   const mjmlContent = fs.readFileSync(inputPath, 'utf-8')
