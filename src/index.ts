@@ -6,8 +6,8 @@ import { convertMjml } from './converter'
 
 async function main(): Promise<void> {
   const [, , inputArg, outputArg] = process.argv
-  const inputPath = path.resolve(process.cwd(), inputArg ?? 'input.mjml')
-  const outputPath = path.resolve(process.cwd(), outputArg ?? 'output.html')
+  const inputPath = path.resolve(process.cwd(), inputArg ?? 'examples/input.mjml')
+  const outputPath = path.resolve(process.cwd(), outputArg ?? 'examples/output.html')
 
   console.log(`Reading ${inputPath}…`)
   const mjmlContent = fs.readFileSync(inputPath, 'utf-8')

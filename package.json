@@ -44,7 +44,7 @@
     "postbuild": "chmod +x dist/index.js",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run typecheck && npm run build",
-    "mjml": "mjml input.mjml -o input.html"
+    "mjml": "mjml examples/input.mjml -o examples/input.html"
   },
   "peerDependencies": {
     "@react-email/components": ">=0.0.35",
